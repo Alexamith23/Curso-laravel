@@ -25,3 +25,57 @@
     El controlador delega y carga toda la información necesaria para proporcionar una respuesta que  recibe los datos del controlador y luego genera la estructura HTML para el usuario.
 
 # Setup a Database Connection
+En la carpeta del proyecto se encuentra el archivo .env
+Aquí es donde almacena todas las claves y valores de configuración importantes, lo primero que debe entender son todas estas claves de base de datos, todos ellos serán referenciados dentro del archivo de configuración correspondiente.
+
+![vagrant](confdb.png "vagrant")
+
+Cambio los valores a los cuales se adapte con lo que voy a trabajar.
+
+
+Paso 1
+
+    Voy a la carpeta config
+
+Paso 2
+
+    Abro el archivo database.php
+
+Paso 3
+
+    Elijo y configuro la base de datos que vaya a usar
+
+- Conexión de graves: estamos usando nuestra reconexión usando un adaptador MySQL o sqlite o postgres. Cuando este caso va a leer esa clave del archivo de entorno y si no existe, cambiaremos de forma predeterminada a mySQL.
+> ![vagrant](dbdefa.png "vagrant")
+- Aquí están todas las conexiones entre las que puede elegir, así que imaginemos que desea usar sqlite en su lugar, de acuerdo, volvería a su archivo de entorno y cambiaría la conexión, así que ahora está usando sqlite.
+
+# Crear la base de datos mySql
+## En la terminal lanzo sigo los siguients pasos.
+- Me conecto a mysql con el comando
+
+        sudo mysql -u root
+
+- Creo la bd con el nombre que coloqué en el archivo .env
+
+        create database laravel;
+
+- Me conecto a la bd que `larevel`
+
+        use laravel
+
+- Creo una tabla por ejemplo así.
+
+        CREATE TABLE persona (nombre VARCHAR(30), edad INT);
+
+- Comprobar la tabla creada.
+
+        DESCRIBE persona;
+
+- Añadir algunos registros.
+
+        INSERT INTO persona VALUES ('Jose Sanchez', 22);
+
+- Comprobar los datos.
+
+        SELECT * FROM persona;
+
